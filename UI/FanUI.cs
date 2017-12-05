@@ -1,12 +1,12 @@
-﻿using BaseLib.UI;
-using BaseLib.Utility;
-using MobUtils.TileEntities;
+﻿using MobUtils.TileEntities;
 using Terraria.GameContent.UI.Elements;
 using Terraria.ModLoader;
+using TheOneLibrary.Base.UI;
+using TheOneLibrary.Utility;
 
 namespace MobUtils.UI
 {
-	public class FanUI : BaseUI, TileEntityUI
+	public class FanUI : BaseUI, ITileEntityUI
 	{
 		public TEFan fan;
 

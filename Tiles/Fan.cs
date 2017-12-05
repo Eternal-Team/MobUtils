@@ -1,5 +1,4 @@
-﻿using BaseLib.Utility;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MobUtils.TileEntities;
 using MobUtils.UI;
@@ -8,11 +7,12 @@ using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using static BaseLib.Utility.Utility;
+using TheOneLibrary.Base;
+using TheOneLibrary.Utility;
 
 namespace MobUtils.Tiles
 {
-	public class Fan : ModTile
+	public class Fan : BaseTile
 	{
 		public override bool Autoload(ref string name, ref string texture)
 		{
@@ -83,7 +83,7 @@ namespace MobUtils.Tiles
 			{
 				TEFan fan = (TEFan)TileEntity.ByID[ID];
 
-				TileObjectDirection dir = GetDirection(i, j, mod.TileType<Fan>());
+				TileObjectDirection dir = TheOneLibrary.Utility.Utility.GetDirection(i, j, mod.TileType<Fan>());
 				int startX = dir == TileObjectDirection.PlaceRight ? i + 2 : i - fan.rangeX / 16;
 				int endX = dir == TileObjectDirection.PlaceRight ? i + 1 + fan.rangeX / 16 : i - 1;
 

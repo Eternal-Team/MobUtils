@@ -5,11 +5,12 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using static BaseLib.Utility.Utility;
+using TheOneLibrary.Base;
+using TheOneLibrary.Utility;
 
 namespace MobUtils.Tiles
 {
-	public class Spawner : ModTile
+	public class Spawner : BaseTile
 	{
 		public override bool Autoload(ref string name, ref string texture)
 		{

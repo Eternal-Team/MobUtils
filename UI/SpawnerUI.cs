@@ -1,12 +1,12 @@
-﻿using BaseLib.UI;
-using BaseLib.Utility;
-using ContainerLib2.Container;
-using MobUtils.TileEntities;
+﻿using MobUtils.TileEntities;
 using Terraria.ModLoader;
+using TheOneLibrary.Base.UI;
+using TheOneLibrary.UI.Elements;
+using TheOneLibrary.Utility;
 
 namespace MobUtils.UI
 {
-	public class SpawnerUI : BaseUI, TileEntityUI
+	public class SpawnerUI : BaseUI, ITileEntityUI
 	{
 		public TESpawner spawner;
 

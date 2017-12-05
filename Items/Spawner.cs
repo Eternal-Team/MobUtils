@@ -1,14 +1,13 @@
-﻿using BaseLib.Items;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using TheOneLibrary.Base.Items;
 
 namespace MobUtils.Items
 {
 	public class Spawner : BaseItem
 	{
 		public override string Texture => MobUtils.ItemTexturePath + "Spawner";
-
 
 		public override void SetStaticDefaults()
 		{

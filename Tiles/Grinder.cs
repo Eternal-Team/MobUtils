@@ -1,5 +1,4 @@
-﻿using BaseLib;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MobUtils.TileEntities;
 using Terraria;
@@ -7,11 +6,12 @@ using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using static BaseLib.Utility.Utility;
+using TheOneLibrary.Base;
+using TheOneLibrary.Utility;
 
 namespace MobUtils.Tiles
 {
-	public class Grinder : ModTile
+	public class Grinder : BaseTile
 	{
 		public override bool Autoload(ref string name, ref string texture)
 		{
@@ -51,14 +51,14 @@ namespace MobUtils.Tiles
 
 			TEGrinder grinder = (TEGrinder)TileEntity.ByID[ID];
 
-			if (HasWrench)
+			if (TheOneLibrary.Utility.Utility.HasWrench)
 			{
 				grinder.active = !grinder.active;
 				Main.NewText($"Grinder has been {(grinder.active ? "activated" : "deactivated")}.");
 			}
 			else
 			{
-				Main.NewText(grinder.GetEnergyStored() + "/" + grinder.GetMaxEnergyStored());
+				Main.NewText(grinder.GetEnergy() + "/" + grinder.GetCapacity());
 			}
 
 			grinder.SendUpdate();
@@ -91,7 +91,7 @@ namespace MobUtils.Tiles
 			{
 				TEGrinder grinder = (TEGrinder)TileEntity.ByID[ID];
 
-				TileObjectDirection dir = GetDirection(i, j, mod.TileType<Grinder>());
+				TileObjectDirection dir = TheOneLibrary.Utility.Utility.GetDirection(i, j, mod.TileType<Grinder>());
 				int startX = dir == TileObjectDirection.PlaceRight ? i + 2 : i - grinder.range / 16 - 1;
 				int endX = dir == TileObjectDirection.PlaceRight ? i + 2 + grinder.range / 16 : i - 1;
 

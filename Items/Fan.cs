@@ -1,7 +1,7 @@
-﻿using BaseLib.Items;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using TheOneLibrary.Base.Items;
 
 namespace MobUtils.Items
 {

@@ -1,13 +1,13 @@
-using BaseLib;
-using BaseLib.UI;
-using BaseLib.Utility;
 using System.Collections.Generic;
 using Terraria.ModLoader;
 using Terraria.UI;
+using TheOneLibrary.Base;
+using TheOneLibrary.Base.UI;
+using TheOneLibrary.Utility;
 
 namespace MobUtils
 {
-	public class MobUtils : Mod, IMod
+	public class MobUtils : Mod
 	{
 		public static MobUtils Instance;
 
@@ -18,6 +18,7 @@ namespace MobUtils
 		public const string UITexturePath = "MobUtils/Textures/UI/";
 		public const string Placeholder = "MobUtils/Textures/Placeholder";
 
+		[UI("TileEntity")]
 		public static IDictionary<ModTileEntity, GUI> TEUI = new Dictionary<ModTileEntity, GUI>();
 
 		public MobUtils()
@@ -63,7 +64,5 @@ namespace MobUtils
 			);
 			}
 		}
-
-		public IDictionary<ModTileEntity, GUI> GetTEUIs() => TEUI;
 	}
 }

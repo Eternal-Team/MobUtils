@@ -1,12 +1,12 @@
-﻿using BaseLib;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using MobUtils.Tiles;
 using System.IO;
 using Terraria;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader.IO;
-using static BaseLib.Utility.Utility;
+using TheOneLibrary.Base;
+using TheOneLibrary.Utility;
 
 namespace MobUtils.TileEntities
 {
@@ -17,7 +17,7 @@ namespace MobUtils.TileEntities
 		public int rangeX = 80;
 		public int rangeY = 80;
 		public int speed = 20;
-		
+
 		public override bool ValidTile(Tile tile) => tile.active() && tile.type == mod.TileType<Fan>() && tile.TopLeft();
 
 		public override int Hook_AfterPlacement(int i, int j, int type, int style, int direction)
@@ -31,7 +31,7 @@ namespace MobUtils.TileEntities
 
 		public override void Update()
 		{
-			TileObjectDirection dir = GetDirection(Position.X, Position.Y, mod.TileType<Fan>());
+			TileObjectDirection dir = TheOneLibrary.Utility.Utility.GetDirection(Position.X, Position.Y, mod.TileType<Fan>());
 			Rectangle fanBox = new Rectangle(Position.X * 16 + (dir == TileObjectDirection.PlaceRight ? 32 : -rangeX), Position.Y * 16 + 32 - rangeY, rangeX, rangeY);
 
 			for (int i = 0; i < Main.npc.Length; i++)

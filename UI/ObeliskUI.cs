@@ -1,11 +1,11 @@
-﻿using BaseLib.UI;
-using BaseLib.Utility;
-using MobUtils.TileEntities;
+﻿using MobUtils.TileEntities;
 using Terraria.ModLoader;
+using TheOneLibrary.Base.UI;
+using TheOneLibrary.Utility;
 
 namespace MobUtils.UI
 {
-	public class ObeliskUI : BaseUI, TileEntityUI
+	public class ObeliskUI : BaseUI, ITileEntityUI
 	{
 		public TEObelisk obelisk;
 

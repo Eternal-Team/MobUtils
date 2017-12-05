@@ -1,19 +1,18 @@
-﻿using BaseLib;
-using EnergyLib.Energy;
-using Microsoft.Xna.Framework;
-using System.IO;
+﻿using Microsoft.Xna.Framework;
 using MobUtils.Tiles;
+using System.IO;
 using Terraria;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader.IO;
-using static BaseLib.Utility.Utility;
+using TheOneLibrary.Base;
+using TheOneLibrary.Energy.Energy;
+using TheOneLibrary.Utility;
 
 namespace MobUtils.TileEntities
 {
 	public class TEGrinder : BaseTE, IEnergyReceiver
 	{
-		public bool active = true;
 		public int range = 144;
 
 		public EnergyStorage energyStorage = new EnergyStorage(100000);
@@ -32,7 +31,7 @@ namespace MobUtils.TileEntities
 		private int timer;
 		public override void Update()
 		{
-			TileObjectDirection dir = GetDirection(Position.X, Position.Y, mod.TileType<Grinder>());
+			TileObjectDirection dir = TheOneLibrary.Utility.Utility.GetDirection(Position.X, Position.Y, mod.TileType<Grinder>());
 
 			if (active && ++timer >= 120)
 			{
@@ -76,8 +75,8 @@ namespace MobUtils.TileEntities
 
 		public long ReceiveEnergy(long maxReceive) => energyStorage.ReceiveEnergy(maxReceive);
 
-		public long GetEnergyStored() => energyStorage.GetEnergyStored();
+		public long GetEnergy() => energyStorage.GetEnergy();
 
-		public long GetMaxEnergyStored() => energyStorage.GetCapacity();
+		public long GetCapacity() => energyStorage.GetCapacity();
 	}
 }

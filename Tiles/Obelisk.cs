@@ -1,5 +1,4 @@
-﻿using BaseLib.Utility;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MobUtils.TileEntities;
 using MobUtils.UI;
@@ -7,10 +6,12 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using TheOneLibrary.Base;
+using TheOneLibrary.Utility;
 
 namespace MobUtils.Tiles
 {
-	public class Obelisk : ModTile
+	public class Obelisk : BaseTile
 	{
 		public override bool Autoload(ref string name, ref string texture)
 		{

@@ -1,8 +1,4 @@
-﻿using BaseLib;
-using ContainerLib2;
-using ContainerLib2.Container;
-using EnergyLib.Energy;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using MobUtils.Items;
 using System.Collections.Generic;
 using System.IO;
@@ -10,15 +6,16 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
-using static BaseLib.Utility.Utility;
+using TheOneLibrary.Base;
+using TheOneLibrary.Energy.Energy;
+using TheOneLibrary.Storage;
+using TheOneLibrary.Utility;
 using Spawner = MobUtils.Tiles.Spawner;
 
 namespace MobUtils.TileEntities
 {
 	public class TESpawner : BaseTE, IContainerTile, IEnergyReceiver
 	{
-		public bool active = true;
-
 		public IList<Item> Items = new List<Item>();
 		public EnergyStorage energy = new EnergyStorage(100000);
 
@@ -80,7 +77,7 @@ namespace MobUtils.TileEntities
 
 		public override void Load(TagCompound tag)
 		{
-			Items = ContainerLib2.Utility.Load(tag);
+			Items = TheOneLibrary.Utility.Utility.Load(tag);
 			active = tag.GetBool("Active");
 		}
 
@@ -104,9 +101,9 @@ namespace MobUtils.TileEntities
 
 		public ModTileEntity GetTileEntity() => this;
 
-		public long GetEnergyStored() => energy.GetEnergyStored();
+		public long GetEnergy() => energy.GetEnergy();
 
-		public long GetMaxEnergyStored() => energy.GetCapacity();
+		public long GetCapacity() => energy.GetCapacity();
 
 		public EnergyStorage GetEnergyStorage() => energy;
 
