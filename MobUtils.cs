@@ -19,7 +19,7 @@ namespace MobUtils
 		public const string Placeholder = "MobUtils/Textures/Placeholder";
 
 		[UI("TileEntity")]
-		public static IDictionary<ModTileEntity, GUI> TEUI = new Dictionary<ModTileEntity, GUI>();
+		public static Dictionary<ModTileEntity, GUI> TEUI = new Dictionary<ModTileEntity, GUI>();
 
 		public MobUtils()
 		{
